@@ -1,4 +1,3 @@
-
 public class MyQueue {
 	
 	char[] queue;
@@ -12,7 +11,7 @@ public class MyQueue {
 	}
 	//metodo de queue o colas 7u7
 	
-	public char add(char k) {
+	public void add(char k) {
 		if(tail == Max) {
 			System.out.print("\nArreglo lleno :( ");
 		}
@@ -20,22 +19,22 @@ public class MyQueue {
 			queue[tail] = k;
 			tail++;
 		}
-		return k;
 	}
 	
-	public void delete() {
+	public char delete() {
 		
 		if(tail == 0) {
 			System.out.println("\nArreglo esta vacio :(");
+			return '#';
 		}
 		else {
-			System.out.print("\nElemento eliminado: " + queue[0]);
+			char eliminado = queue[0];
 			for(int i = 0; i < tail; i++) {
 				int j = i + 1;
 				queue[i] = queue[j];
 			}
 			tail--;
-			
+			return eliminado;
 		}
 		
 	}
