@@ -1,0 +1,85 @@
+
+public class Porgrama {
+
+	public static void main(String[] args) {
+		//Usando Stack
+		MyStack myStack = new MyStack(5);
+		myStack.push('a');
+		myStack.push('n');
+		myStack.push('a');
+		myStack.push('a');
+		
+		for(int i = 0; i < myStack.stack.length;i++) {
+			System.out.print(myStack.stack[i]);
+		}
+		System.out.print("\n");
+		
+		myStack.pop();
+		
+		for(int i = 0; i < myStack.stack.length;i++) {
+			System.out.print(myStack.stack[i]);
+		}
+		System.out.print("\n");
+		
+		palindromo(myStack);
+
+		
+		//Usando queue
+		
+		MyQueue myQu = new MyQueue(5);
+		myQu.add('h');
+		myQu.add('o');
+		myQu.add('l');
+		myQu.add('a');
+		
+		for(int i = 0; i < myQu.queue.length;i++) {
+			System.out.print(myQu.queue[i]);
+		}
+		
+		myQu.delete();
+		myQu.delete();
+		myQu.delete();
+		myQu.delete();
+		myQu.delete();
+		
+		myQu.add('b');
+		myQu.add('i');
+		
+		for(int i = 0; i < myQu.queue.length;i++) {
+			System.out.print(myQu.queue[i]);
+		}
+		
+
+
+	}
+	
+	public static void invertirCadena(MyStack c) {
+		for(int i = 0; i < c.stack.length; i++) {
+			char temp = c.stack[i];
+			c.stack[i] = c.pop();
+			c.stack[top] = temp;
+			if(i > top) {
+				break;
+			}
+		}
+	}
+	
+	public static void palindromo(MyStack c) {
+		if(c.stack[0] == c.pop()) {
+			int i = 1;
+			while(c.stack[i] == c.pop()) {
+				i++;
+				if(i == top) {
+					System.out.print("Es palindromo");
+					break;
+				}
+			}
+		}
+		else {
+			System.out.print("No es palindromo");
+		}
+	}
+	
+	
+
+}
