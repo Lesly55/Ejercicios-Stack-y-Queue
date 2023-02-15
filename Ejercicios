@@ -1,4 +1,5 @@
 
+
 public class Porgrama {
 
 	public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class Porgrama {
 		}
 		System.out.print("\n");
 		
-		myStack.pop();
+		System.out.println(myStack.pop());
 		
 		for(int i = 0; i < myStack.stack.length;i++) {
 			System.out.print(myStack.stack[i]);
@@ -31,6 +32,8 @@ public class Porgrama {
 		myQu.add('o');
 		myQu.add('l');
 		myQu.add('a');
+		
+		System.out.println("\n");
 		
 		for(int i = 0; i < myQu.queue.length;i++) {
 			System.out.print(myQu.queue[i]);
@@ -53,12 +56,13 @@ public class Porgrama {
 
 	}
 	
+	
 	public static void invertirCadena(MyStack c) {
 		for(int i = 0; i < c.stack.length; i++) {
 			char temp = c.stack[i];
 			c.stack[i] = c.pop();
-			c.stack[top] = temp;
-			if(i > top) {
+			c.stack[c.top()] = temp;
+			if(i > c.top()) {
 				break;
 			}
 		}
@@ -69,8 +73,10 @@ public class Porgrama {
 			int i = 1;
 			while(c.stack[i] == c.pop()) {
 				i++;
-				if(i == top) {
-					System.out.print("Es palindromo");
+				String resultado = "No es palindromo";
+				if(i > c.top()) {
+					resultado = "Es palindromo";
+					System.out.print(resultado);
 					break;
 				}
 			}
@@ -79,7 +85,5 @@ public class Porgrama {
 			System.out.print("No es palindromo");
 		}
 	}
-	
-	
 
 }
