@@ -1,0 +1,49 @@
+
+public class MyStack {
+	public char[] stack;
+	int MAX;
+	public int top; 
+	
+	public MyStack(int stackSize){
+		this.stack = new char[stackSize];
+		MAX = this.stack.length;
+		top = 0;
+		
+	}
+	
+	//dos partes del metodo de stacks (push y pop)
+	
+	public char pop() {
+		
+		if(top == 0) {
+			System.out.println("\nStack is empty :(");
+			return('0');
+		}
+		else {
+			char eliminado = stack[top-1];
+			
+			stack[top-1] = ' ';
+			top--;
+			
+			return(eliminado);
+		}
+		
+	}
+	
+	public void push(char value) {
+		
+		if(top == MAX) {
+			System.out.println("valor fuera de arreglo :(");
+			return;
+		}
+		
+		stack[top] = value;
+		top++;
+		
+	}
+	
+	
+}
+
+
+
