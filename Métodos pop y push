@@ -1,8 +1,7 @@
-
 public class MyStack {
 	public char[] stack;
-	int MAX;
-	public int top; 
+	public int MAX;
+	public static int top; 
 	
 	public MyStack(int stackSize){
 		this.stack = new char[stackSize];
@@ -21,7 +20,6 @@ public class MyStack {
 		}
 		else {
 			char eliminado = stack[top-1];
-			
 			stack[top-1] = ' ';
 			top--;
 			
@@ -41,6 +39,11 @@ public class MyStack {
 		top++;
 		
 	}
+	
+	public int top() {
+		return top;
+	}
+	
 	
 	
 }
