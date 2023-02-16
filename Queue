@@ -9,7 +9,7 @@ public class MyQueue {
 		tail = 0;
 		Max = arregloLength;
 	}
-	//metodo de queue o colas 7u7
+	//metodo de queue
 	
 	public void add(char k) {
 		if(tail == Max) {
@@ -29,6 +29,7 @@ public class MyQueue {
 		}
 		else {
 			char eliminado = queue[0];
+			System.out.println(eliminado);
 			for(int i = 0; i < tail; i++) {
 				int j = i + 1;
 				queue[i] = queue[j];
