@@ -24,8 +24,7 @@ public class MyStack {
 			top--;
 			
 			return(eliminado);
-		}
-		
+		}	
 	}
 	
 	public void push(char value) {
@@ -37,16 +36,5 @@ public class MyStack {
 		
 		stack[top] = value;
 		top++;
-		
 	}
-	
-	public int top() {
-		return top;
-	}
-	
-	
-	
 }
-
-
-
