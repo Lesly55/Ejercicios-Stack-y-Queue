@@ -1,9 +1,7 @@
-
-
 public class Porgrama {
 
 	public static void main(String[] args) {
-		//Usando Stack
+		//Haciendo array con push
 		MyStack myStack = new MyStack(5);
 		myStack.push('a');
 		myStack.push('n');
@@ -11,79 +9,58 @@ public class Porgrama {
 		myStack.push('a');
 		
 		for(int i = 0; i < myStack.stack.length;i++) {
-			System.out.print(myStack.stack[i]);
+			System.out.println(myStack.stack[i]);
 		}
 		System.out.print("\n");
 		
-		System.out.println(myStack.pop());
+		//Sacando ultimo caracter con pop
+		myStack.pop();
 		
 		for(int i = 0; i < myStack.stack.length;i++) {
-			System.out.print(myStack.stack[i]);
+			System.out.println(myStack.stack[i]);
 		}
-		System.out.print("\n");
 		
-		palindromo(myStack);
-
-		
-		//Usando queue
-		
+		//Construyendo array con add
 		MyQueue myQu = new MyQueue(5);
 		myQu.add('h');
 		myQu.add('o');
 		myQu.add('l');
 		myQu.add('a');
 		
-		System.out.println("\n");
 		
 		for(int i = 0; i < myQu.queue.length;i++) {
-			System.out.print(myQu.queue[i]);
+			System.out.println(myQu.queue[i]);
 		}
-		
+		//Eliminando primer elemento con delete
 		myQu.delete();
 		myQu.delete();
-		myQu.delete();
-		myQu.delete();
-		myQu.delete();
-		
-		myQu.add('b');
-		myQu.add('i');
-		
-		for(int i = 0; i < myQu.queue.length;i++) {
-			System.out.print(myQu.queue[i]);
-		}
-		
 
+		//Pruebas de metodos invertirCadena y isPalindromo
+		System.out.println(invertirCadena("Anita lava la tina"));
+		System.out.println(isPalindromo("Anita lava la tina"));
 
 	}
 	
-	
-	public static void invertirCadena(MyStack c) {
-		for(int i = 0; i < c.stack.length; i++) {
-			char temp = c.stack[i];
-			c.stack[i] = c.pop();
-			c.stack[c.top()] = temp;
-			if(i > c.top()) {
-				break;
-			}
+	public static String invertirCadena(String k) {
+		//convertir string a char array
+		MyStack stackOg = new MyStack(k.length());
+		int length = k.length();
+		char[] newStack = new char[length];
+		for(int i =  0; i < stackOg.stack.length; i++) {
+			stackOg.push(k.charAt(i));
 		}
+		//pasar elementos del string a nuevo char invertido
+		for(int i = 0; i < stackOg.stack.length; i++) {
+			newStack[i] = stackOg.pop();
+		}
+		//convertir char a String
+		String newString = String.valueOf(newStack);
+		return newString;
 	}
 	
-	public static void palindromo(MyStack c) {
-		if(c.stack[0] == c.pop()) {
-			int i = 1;
-			while(c.stack[i] == c.pop()) {
-				i++;
-				String resultado = "No es palindromo";
-				if(i > c.top()) {
-					resultado = "Es palindromo";
-					System.out.print(resultado);
-					break;
-				}
-			}
-		}
-		else {
-			System.out.print("No es palindromo");
-		}
-	}
 
+	public static boolean isPalindromo(String k) {
+		return (k.replaceAll("\\s", "").toLowerCase().equals((invertirCadena(k)).replaceAll("\\s", "").toLowerCase()));
+    }
+	
 }
